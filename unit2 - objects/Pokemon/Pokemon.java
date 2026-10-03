@@ -16,26 +16,59 @@ public class Pokemon extends Actor
     private Attack attack;
     private String type;
     
+    
+    // Constructor
+    public Pokemon(int hp, int ap, String name, String attack, String type){
+        this.hp = hp;
+        this.ap = ap;
+        this.name = name;
+        this.img = new GreenfootImage(name+" .png");
+        setImage(this.img);
+        this.attack = new Attack(attack);
+    }
+    
     public String getType(){
         return this.type;
     }
     
     public void attack(String aName, User enemy){
+        takeDamage(enemy.getPokemon().getAPower(aName, enemy));
     }
     
     public void takeDamage(int amount){
         this.hp -= amount;
+        if(this.hp < 0){
+            this.hp = 0;
+        }
     }
     
     public void heal(){
-        this.hp ++;
+        this.hp += 20;
     }
     
-    public void printAttack(){
+    public Attack getAttack(){
+        return this.attack;
+    }
+    
+    public boolean isOut(){
+        return this.hp<=0;
     }
     
     public int getAPower(String aName, User enemy){
-        return 0;
+        Attack a = enemy.getPokemon().getAttack();
+        return a.getPower();
+    }
+    
+    public int getHp(){
+        return this.hp;
+    }
+    
+    public int getAp(){
+        return this.ap;
+    }
+    
+    public String getName(){
+        return this.name;
     }
 
     /**

@@ -13,6 +13,8 @@ public class User extends Actor
     
     // constructor
     public User(String name){
+        this.name = name;
+        this.pokemon = null;
     }
     
     public void setPokemon(Pokemon p){
@@ -23,16 +25,24 @@ public class User extends Actor
         return this.pokemon;
     }
     
-    public void switchP(){
+    public void switchP(Pokemon p){
+        setPokemon(p);
     }
     
     public void heal(){
+        if (this.pokemon != null) {
+            this.pokemon.heal();
+        }
     }
     
     public void attack(String name, User enemy){
     }
     
     public void isEndGame(){
+    }
+    
+    public String getName(){
+        return this.name;
     }
     
     /**
@@ -43,4 +53,5 @@ public class User extends Actor
     {
         // Add your action code here.
     }
+    
 }
