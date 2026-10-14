@@ -15,6 +15,8 @@ public class User extends Actor
     public User(String name){
         this.name = name;
         this.pokemon = null;
+        GreenfootImage img = new GreenfootImage(name.toUpperCase() + " ", 28, Color.WHITE, Color.BLUE);
+        this.setImage(img);
     }
     
     public void setPokemon(Pokemon p){
@@ -36,6 +38,7 @@ public class User extends Actor
     }
     
     public void attack(String name, User enemy){
+
     }
     
     public void isEndGame(){
