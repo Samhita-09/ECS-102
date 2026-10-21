@@ -1,0 +1,9 @@
+Frog Simulation
+------------------------------------------
+- goalDistance: int
+- maxHops: int
+------------------------------------------
++ FrogSimulation(dist: int, numHops: int)
+- hopDistance: int
++ simulate: boolean
++ runSimulations(num: int): double
