@@ -20,6 +20,24 @@ public class FrogSimulation {
 
     public boolean simulate() {
         boolean result = false;
-        return result;
+        int start = 0;
+        for (int i = 0; i < maxHops; i++) {
+            start = start + hopDistance();
+            if (start < 0) {
+                return false;
+            }
+        }
+
+        return start > goalDistance;
+    }
+
+    public double runSimulations(int num) {
+        double count = 0.0;
+        for (int i = 0; i < num; i++) {
+            if (simulate()) {
+                count ++;
+            }
+        }
+        return count/num;
     }
 }
