@@ -8,5 +8,6 @@ public class FrogRunner {
         System.out.println(sim.simulate());
         System.out.println(sim.simulate());
         System.out.println(sim.simulate());
+        System.out.println(sim.runSimulations(5)); // running it another 5 times to show proportion
     }
 }
